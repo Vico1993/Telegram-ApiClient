@@ -59,6 +59,16 @@ type returnStruct struct {
 	} `json:"message"`
 }
 
+// NewBetaClient : Create a Client for telegram api
+func NewBetaClient(chatID string, botAPI string) *Client {
+	var cl = &Client{
+		ChatID: chatID,
+		BotAPI: botAPI,
+	}
+
+	return cl
+}
+
 // SendTelegramMessage is use to send message from a bot to an chat Room
 func (cl *Client) SendTelegramMessage(msg string, notification bool) bool {
 	var URL *url.URL
